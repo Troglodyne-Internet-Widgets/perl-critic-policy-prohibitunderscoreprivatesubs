@@ -8,11 +8,11 @@ version 0.001
 
 # Perl::Critic::Policy::Subroutines::ProhibitUnderscorePrivateSubs
 
-A leading underscore says that a sub is private, and nothing enforces it.  Any
-code can call `Some::Module::_helper`, a subclass can override it without
-knowing, and a test that calls it pins the implementation instead of the
-interface.  A lexical sub is private in fact: nothing outside its scope can
-name it.
+It's a common convention in perl to have a leading underscore mean that a sub is private,
+but nothing enforces it.  Any code can call `Some::Module::_helper`,
+a subclass can override it without knowing, and a test that calls it tests the
+implementation instead of the documented interface.
+A lexical sub is private in fact: nothing outside its scope can use it.
 
 ```perl
 sub _helper { ... }                  # reported
@@ -79,6 +79,15 @@ seen.
 ### applies\_to
 
 ### violates
+
+# BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+[https://github.com/teodesian/perl-critic-policy-prohibitunderscoreprivatesubs/issues](https://github.com/teodesian/perl-critic-policy-prohibitunderscoreprivatesubs/issues)
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 # AUTHORS
 

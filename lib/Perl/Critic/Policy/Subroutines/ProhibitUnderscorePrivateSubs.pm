@@ -16,11 +16,11 @@ use parent              qw{Perl::Critic::Policy};
 
 =head1 Perl::Critic::Policy::Subroutines::ProhibitUnderscorePrivateSubs
 
-A leading underscore says that a sub is private, and nothing enforces it.  Any
-code can call C<Some::Module::_helper>, a subclass can override it without
-knowing, and a test that calls it pins the implementation instead of the
-interface.  A lexical sub is private in fact: nothing outside its scope can
-name it.
+It's a common convention in perl to have a leading underscore mean that a sub is private,
+but nothing enforces it.  Any code can call C<Some::Module::_helper>,
+a subclass can override it without knowing, and a test that calls it tests the
+implementation instead of the documented interface.
+A lexical sub is private in fact: nothing outside its scope can use it.
 
     sub _helper { ... }                  # reported
     _helper(@args);
