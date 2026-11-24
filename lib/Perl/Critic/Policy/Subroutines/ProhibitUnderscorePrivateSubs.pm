@@ -110,6 +110,8 @@ sub applies_to       { return 'PPI::Statement::Sub' }
 sub violates {
     my ( $self, $elem, undef ) = @_;
 
+    no autovivification;
+
     my $type = $elem->type // q{};
     return if $LEXICAL{$type} || $elem->reserved;
 
